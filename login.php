@@ -80,10 +80,10 @@ x.type=x.type==="password"?"text":"password";
 <div class="box">
 <h2> Login</h2>🔐
 <form method="POST">
-<input name="correo" placeholder="Correo">
-<input id="pass" name="password" type="password" placeholder="Contraseña">
+<input name="correo" placeholder="Correo" required>
+<input id="pass" name="password" type="password" placeholder="Contraseña" required>
 <button type="button" onclick="ver()"> Mostrar</button>👁️
-<button>Entrar</button>
+<button type="submit">Entrar</button>
 </form>
 <a href="index.php">Crear cuenta</a>
 </div>
