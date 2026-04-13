@@ -104,6 +104,7 @@ x.type=x.type==="password"?"text":"password";
 <input name="correo" type="email" placeholder=" Correo" required>📧
 <input id="pass" name="password" type="password" placeholder=" Contraseña" required>🔒
 <input name="password2" type="password" placeholder=" Confirmar contraseña" required>🔒
+<input name="rol" placeholder=" Rol (admin/user)" required>
 <button type="button" onclick="ver()"> Mostrar</button>👁️
 <button type="submit">Registrar</button>
 </form>
@@ -114,12 +115,12 @@ $nombre=$_POST['nombre'];
 $correo=$_POST['correo'];
 $pass=$_POST['password'];
 $pass2=$_POST['password2'];
-  
+$rol=$_POST['rol'];
 if($pass!=$pass2){
 echo "<p class='msg'> No coinciden</p>";❌
 }else{
-$stmt=$conn->prepare("INSERT INTO usuarios(nombre,correo,password,rol) VALUES(?,?,?, 'user')");
-$stmt->bind_param("sss",$nombre,$correo,$pass);
+$stmt=$conn->prepare("INSERT INTO usuarios(nombre,correo,password,rol) VALUES(?,?,?,?)");
+$stmt->bind_param("ssss",$nombre,$correo,$pass,$rol);
 $stmt->execute();
 echo "<p class='msg'> Registrado</p>";✅
 }
