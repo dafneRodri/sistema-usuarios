@@ -10,7 +10,7 @@ $stmt->execute();
 $r=$stmt->get_result();
 if($r->num_rows>0){
 $user=$r->fetch_assoc();
-if(password_verify($pass,$user['password'])){
+if($pass == $user['password']){
 $_SESSION['user']=$user['correo'];
 header("Location: panel.php");
 }else{
