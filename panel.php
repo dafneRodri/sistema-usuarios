@@ -55,7 +55,7 @@ box-shadow:0 0 10px #7b5bf2;
 <?php while($row=$r->fetch_assoc()){ ?>
 <div class="card">
 <div>
-<b><?= $row['nombre'] ?></b><br>
+<b><?= $row['nombre'] ?></b> <small style="color:#7b5bf2;">(<?= $row['rol'] ?>)</small><br>
 <?= $row['correo'] ?>
 </div>
   <div>
