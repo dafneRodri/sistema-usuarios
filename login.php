@@ -12,6 +12,8 @@ if($r->num_rows>0){
 $user=$r->fetch_assoc();
 if($pass == $user['password']){
 $_SESSION['user']=$user['correo'];
+$_SESSION['nombre'] = $user['nombre'];
+$_SESSION['rol'] = $user['rol'];
 header("Location: panel.php");
 }else{
 echo "<p style='color:red;text-align:center;'> Error</p>";
