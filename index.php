@@ -105,7 +105,7 @@ x.type=x.type==="password"?"text":"password";
 <input id="pass" name="password" type="password" placeholder=" Contraseña" required>🔒
 <input name="password2" type="password" placeholder=" Confirmar contraseña" required>🔒
 <button type="button" onclick="ver()"> Mostrar</button>👁️
-<button>Registrar</button>
+<button type="submit">Registrar</button>
 </form>
 <a href="login.php">Ya tengo cuenta</a>
 <?php
@@ -114,12 +114,12 @@ $nombre=$_POST['nombre'];
 $correo=$_POST['correo'];
 $pass=$_POST['password'];
 $pass2=$_POST['password2'];
+  
 if($pass!=$pass2){
 echo "<p class='msg'> No coinciden</p>";❌
 }else{
-$hash=password_hash($pass,PASSWORD_DEFAULT);
 $stmt=$conn->prepare("INSERT INTO usuarios(nombre,correo,password,rol) VALUES(?,?,?, 'user')");
-$stmt->bind_param("sss",$nombre,$correo,$hash);
+$stmt->bind_param("sss",$nombre,$correo,$pass);
 $stmt->execute();
 echo "<p class='msg'> Registrado</p>";✅
 }
