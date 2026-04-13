@@ -58,9 +58,9 @@ box-shadow:0 0 10px #7b5bf2;
 <b><?= $row['nombre'] ?></b><br>
 <?= $row['correo'] ?>
 </div>
-<div>
-<a class="btn" href="editar.php?id=<?= $row['id'] ?>"> </a>✏️
-<a class="btn" href="eliminar.php?id=<?= $row['id'] ?>"> </a>🗑️
+  <div>
+    <a class="btn" href="editar.php?id=<?= $row['id'] ?>">Editar ✏️</a>
+    <a class="btn" href="eliminar.php?id=<?= $row['id'] ?>">Borrar 🗑️</a>
 </div>
 </div>
 <?php } ?>
