@@ -47,8 +47,11 @@ x.type=x.type==="password"?"text":"password";
 <a href="login.php">Ya tengo cuenta</a>
 
 <?php
-if($_POST){
 
+if($_POST){
+    echo "FUNCIONA<br>";
+    var_dump($_POST);
+}
 $nombre=$_POST['nombre'];
 $correo=$_POST['correo'];
 $pass=$_POST['password'];
