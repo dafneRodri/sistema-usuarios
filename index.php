@@ -111,7 +111,7 @@ x.type=x.type==="password"?"text":"password";
 <input name="password2" type="password" placeholder="🔒 Confirmar contraseña" required>
 <input name="rol" placeholder=" Rol (admin/user)" required>
 <button type="button" onclick="ver()"> Mostrar 👁️</button>
-<button type="submit">Registrar</button>
+<button type="button">Registrar</button>
 </form>
 <a href="login.php">Ya tengo cuenta</a>
 <?php
