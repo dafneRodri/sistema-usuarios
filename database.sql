@@ -7,4 +7,4 @@ correo VARCHAR(50),
 password VARCHAR(255),
 rol VARCHAR(20)
 );
-INSERT INTO usuarios VALUES (NULL,"admin","admin@gmail.com","1234","admin")
+INSERT INTO usuarios VALUES (NULL,"admin","admin@gmail.com","1234","admin");
