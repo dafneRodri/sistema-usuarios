@@ -4,7 +4,27 @@ ini_set('display_errors', 1);
 
 include("conexion.php");
 
-echo $_SERVER['REQUEST_METHOD'];
+$mensaje = "";
+
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
+
+    $nombre = $_POST['nombre'];
+    $correo = $_POST['correo'];
+    $pass   = $_POST['password'];
+    $pass2  = $_POST['password2'];
+    $rol    = $_POST['rol'];
+
+    if($pass != $pass2){
+        $mensaje = "No coinciden ❌";
+    } else {
+
+        $stmt = $conn->prepare("INSERT INTO usuarios(nombre,correo,password,rol) VALUES(?,?,?,?)");
+        $stmt->bind_param("ssss",$nombre,$correo,$pass,$rol);
+        $stmt->execute();
+
+        $mensaje = "Registrado ✅";
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -91,13 +111,6 @@ text-decoration:none;
 margin-top:10px;
 }
 </style>
-    
-<script>
-function ver(){
-let x=document.getElementById("pass");
-x.type=x.type==="password"?"text":"password";
-}
-</script>
 
 </head>
 
@@ -105,7 +118,7 @@ x.type=x.type==="password"?"text":"password";
 
 <div class="box">
 
-<h2> Crear cuenta </h2>
+<h2> Crear cuenta 🚀</h2>
 <p class="sub">Sistema de usuarios</p>
 
 <form method="POST">
@@ -114,6 +127,10 @@ x.type=x.type==="password"?"text":"password";
 <input name="correo" type="email" placeholder="📧 Correo electrónico" required>
 
 <input id="pass" name="password" type="password" placeholder="🔒 Contraseña" required>
+
+<!-- 👁️ BOTÓN MOSTRAR -->
+<button type="button" onclick="ver()">👁️ Mostrar</button>
+
 <input name="password2" type="password" placeholder="🔒 Confirmar contraseña" required>
 
 <input name="rol" placeholder="Rol (admin / user)" required>
@@ -122,43 +139,22 @@ x.type=x.type==="password"?"text":"password";
 
 </form>
 
+<!-- MENSAJE -->
+<?php if($mensaje != ""): ?>
+<p class="msg"><?= $mensaje ?></p>
+<?php endif; ?>
+
 <a href="login.php">Ya tengo cuenta 🔐</a>
 
 </div>
-    
-<a href="login.php">Ya tengo cuenta</a>
 
-<?php
-
-if($_SERVER['REQUEST_METHOD'] == 'POST'){
-
-    $nombre = $_POST['nombre'];
-    $correo = $_POST['correo'];
-    $pass   = $_POST['password'];
-    $pass2  = $_POST['password2'];
-    $rol    = $_POST['rol'];
-
-    if($pass != $pass2){
-        echo "<p class='msg'> No coinciden ❌</p>";
-    } else {
-
-        $stmt = $conn->prepare("INSERT INTO usuarios(nombre,correo,password,rol) VALUES(?,?,?,?)");
-        $stmt->bind_param("ssss",$nombre,$correo,$pass,$rol);
-        $stmt->execute();
-
-        echo "<p class='msg'> Registrado ✅</p>";
-    }
-}
-?>
-
-</div>
-
+<!-- SCRIPT -->
 <script>
 function ver(){
 let x=document.getElementById("pass");
 x.type=x.type==="password"?"text":"password";
 }
 </script>
-    
+
 </body>
 </html>
