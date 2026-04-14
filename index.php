@@ -123,15 +123,15 @@ margin-top:10px;
 
 <form method="POST">
 
-<input name="nombre" placeholder="👤 Nombre completo" required>
-<input name="correo" type="email" placeholder="📧 Correo electrónico" required>
+<input name="nombre" placeholder="👤 Nombre Completo" required>
+<input name="correo" type="email" placeholder="📧 Correo Electrónico" required>
 
 <input id="pass" name="password" type="password" placeholder="🔒 Contraseña" required>
 
 <!-- 👁️ BOTÓN MOSTRAR -->
 <button type="button" onclick="ver()">👁️ Mostrar</button>
 
-<input name="password2" type="password" placeholder="🔒 Confirmar contraseña" required>
+<input name="password2" type="password" placeholder="🔒 Confirmar Contraseña" required>
 
 <input name="rol" placeholder="Rol (admin / user)" required>
 
@@ -144,7 +144,7 @@ margin-top:10px;
 <p class="msg"><?= $mensaje ?></p>
 <?php endif; ?>
 
-<a href="login.php">Ya tengo cuenta 🔐</a>
+<a href="login.php">Ya Tengo Cuenta 🔐</a>
 
 </div>
 
