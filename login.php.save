@@ -12,8 +12,6 @@ if($r->num_rows>0){
 $user=$r->fetch_assoc();
 if($pass == $user['password']){
 $_SESSION['user']=$user['correo'];
-$_SESSION['nombre'] = $user['nombre'];
-$_SESSION['rol'] = $user['rol'];
 header("Location: panel.php");
 }else{
 echo "<p style='color:red;text-align:center;'> Error</p>";
@@ -82,10 +80,10 @@ x.type=x.type==="password"?"text":"password";
 <div class="box">
 <h2> Login</h2>🔐
 <form method="POST">
-<input name="correo" placeholder="Correo" required>
-<input id="pass" name="password" type="password" placeholder="Contraseña" required>
-<button type="button" onclick="ver()"> Mostrar</button>👁️
-<button type="submit">Entrar</button>
+<input name="correo" placeholder="Correo">
+<input id="pass" name="password" type="password" placeholder="Contraseña">
+<button type="button" onclick="ver()"> Mostrar>👁️></button>
+<button>Entrar</button>
 </form>
 <a href="index.php">Crear cuenta</a>
 </div>
