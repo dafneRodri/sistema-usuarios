@@ -50,26 +50,24 @@ x.type=x.type==="password"?"text":"password";
 
 <?php
 
-if($_POST){
-    echo "FUNCIONA<br>";
-    var_dump($_POST);
-}
-$nombre=$_POST['nombre'];
-$correo=$_POST['correo'];
-$pass=$_POST['password'];
-$pass2=$_POST['password2'];
-$rol=$_POST['rol'];
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
-if($pass!=$pass2){
-echo "<p class='msg'> No coinciden ❌</p>";
-}else{
+    $nombre = $_POST['nombre'];
+    $correo = $_POST['correo'];
+    $pass   = $_POST['password'];
+    $pass2  = $_POST['password2'];
+    $rol    = $_POST['rol'];
 
-$stmt=$conn->prepare("INSERT INTO usuarios(nombre,correo,password,rol) VALUES(?,?,?,?)");
-$stmt->bind_param("ssss",$nombre,$correo,$pass,$rol);
-$stmt->execute();
+    if($pass != $pass2){
+        echo "<p class='msg'> No coinciden ❌</p>";
+    } else {
 
-echo "<p class='msg'> Registrado ✅</p>";
-}
+        $stmt = $conn->prepare("INSERT INTO usuarios(nombre,correo,password,rol) VALUES(?,?,?,?)");
+        $stmt->bind_param("ssss",$nombre,$correo,$pass,$rol);
+        $stmt->execute();
+
+        echo "<p class='msg'> Registrado ✅</p>";
+    }
 }
 ?>
 
