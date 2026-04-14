@@ -100,12 +100,12 @@ x.type=x.type==="password"?"text":"password";
 <h2> Sistema de usuarios</h2>
 <p class="sub">Crear cuenta</p>
 <form method="POST">
-<input name="nombre" placeholder=" Nombre" required>👤
-<input name="correo" type="email" placeholder=" Correo" required>📧
-<input id="pass" name="password" type="password" placeholder=" Contraseña" required>🔒
-<input name="password2" type="password" placeholder=" Confirmar contraseña" required>🔒
+<input name="nombre" placeholder="👤 Nombre" required>
+<input name="correo" type="email" placeholder="📧 Correo" required>
+<input id="pass" name="password" type="password" placeholder="🔒 Contraseña" required>
+<input name="password2" type="password" placeholder="🔒 Confirmar contraseña" required>
 <input name="rol" placeholder=" Rol (admin/user)" required>
-<button type="button" onclick="ver()"> Mostrar</button>👁️
+<button type="button" onclick="ver()"> Mostrar 👁️</button>
 <button type="submit">Registrar</button>
 </form>
 <a href="login.php">Ya tengo cuenta</a>
@@ -117,12 +117,12 @@ $pass=$_POST['password'];
 $pass2=$_POST['password2'];
 $rol=$_POST['rol'];
 if($pass!=$pass2){
-echo "<p class='msg'> No coinciden</p>";❌
+echo "<p class='msg'> No coinciden ❌</p>";
 }else{
 $stmt=$conn->prepare("INSERT INTO usuarios(nombre,correo,password,rol) VALUES(?,?,?,?)");
 $stmt->bind_param("ssss",$nombre,$correo,$pass,$rol);
 $stmt->execute();
-echo "<p class='msg'> Registrado</p>";✅
+echo "<p class='msg'> Registrado ✅</p>";
 }
 }
 ?>
@@ -191,8 +191,8 @@ box-shadow:0 0 10px #7b5bf2;
 <?= $row['correo'] ?>
 </div>
 <div>
-<a class="btn" href="editar.php?id=<?= $row['id'] ?>"> </a>✏️
-<a class="btn" href="eliminar.php?id=<?= $row['id'] ?>"> </a>🗑️
+<a class="btn" href="editar.php?id=<?= $row['id'] ?>">✏️</a>
+<a class="btn" href="eliminar.php?id=<?= $row['id'] ?>">🗑️</a>
 </div>
 </div>
 <?php } ?>
