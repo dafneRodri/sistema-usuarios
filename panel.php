@@ -84,8 +84,8 @@ color:white;
 <?= $row['correo'] ?>
 </div>
 <div class="btn-group">
-<a class="btn" href="editar.php?id=<?= $row['id'] ?>">Editar ✏️</a>
-<a class="btn" href="eliminar.php?id=<?= $row['id'] ?>">Borrar 🗑️</a>
+<a class="btn" href="editar.php?id=<?= $row['id'] ?>"> Editar ✏️</a>
+<a class="btn" href="eliminar.php?id=<?= $row['id'] ?>"> Borrar 🗑️</a>
 </div>
 </div>
 <?php } ?>
