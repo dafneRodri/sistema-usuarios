@@ -14,8 +14,84 @@ echo $_SERVER['REQUEST_METHOD'];
 <title>Registro</title>
 
 <style>
-</style>
+body{
+margin:0;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(-45deg,#000,#09184d,#000,#7b5bf2);
+background-size:400% 400%;
+animation:bg 10s infinite;
+font-family:Segoe UI;
+color:white;
+}
 
+@keyframes bg{
+0%{background-position:0%}
+50%{background-position:100%}
+100%{background-position:0%}
+}
+
+.box{
+width:350px;
+padding:30px;
+border-radius:20px;
+background:rgba(0,0,0,0.6);
+backdrop-filter:blur(20px);
+box-shadow:0 0 40px #7b5bf2;
+text-align:center;
+}
+
+.sub{
+font-size:14px;
+color:#aaa;
+margin-bottom:20px;
+}
+
+input{
+width:100%;
+padding:12px;
+margin:10px 0;
+border:none;
+border-radius:12px;
+background:#111;
+color:white;
+outline:none;
+transition:0.3s;
+}
+
+input:focus{
+box-shadow:0 0 10px #7b5bf2;
+}
+
+button{
+width:100%;
+padding:12px;
+border:none;
+border-radius:12px;
+background:linear-gradient(45deg,#7b5bf2,#09184d);
+color:white;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+box-shadow:0 0 15px #7b5bf2;
+}
+
+a{
+display:block;
+margin-top:15px;
+color:#7b5bf2;
+text-decoration:none;
+}
+
+.msg{
+margin-top:10px;
+}
+</style>
+    
 <script>
 function ver(){
 let x=document.getElementById("pass");
@@ -29,23 +105,27 @@ x.type=x.type==="password"?"text":"password";
 
 <div class="box">
 
-<h2> Sistema de usuarios</h2>
-<p class="sub">Crear cuenta</p>
-
-
+<h2> Crear cuenta </h2>
+<p class="sub">Sistema de usuarios</p>
 
 <form method="POST">
 
-<input name="nombre" placeholder="Nombre" required>
-<input name="correo" type="email" placeholder="Correo" required>
-<input name="password" type="password" placeholder="Contraseña" required>
-<input name="password2" type="password" placeholder="Confirmar" required>
-<input name="rol" placeholder="Rol" required>
+<input name="nombre" placeholder="👤 Nombre completo" required>
+<input name="correo" type="email" placeholder="📧 Correo electrónico" required>
 
-<button type="submit">Registrar</button>
+<input id="pass" name="password" type="password" placeholder="🔒 Contraseña" required>
+<input name="password2" type="password" placeholder="🔒 Confirmar contraseña" required>
+
+<input name="rol" placeholder="Rol (admin / user)" required>
+
+<button type="submit">Registrarme</button>
 
 </form>
 
+<a href="login.php">Ya tengo cuenta 🔐</a>
+
+</div>
+    
 <a href="login.php">Ya tengo cuenta</a>
 
 <?php
@@ -73,5 +153,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 </div>
 
+<script>
+function ver(){
+let x=document.getElementById("pass");
+x.type=x.type==="password"?"text":"password";
+}
+</script>
+    
 </body>
 </html>
