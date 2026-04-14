@@ -30,16 +30,17 @@ x.type=x.type==="password"?"text":"password";
 <h2> Sistema de usuarios</h2>
 <p class="sub">Crear cuenta</p>
 
+
+
 <form method="POST">
 
-<input name="nombre" placeholder="👤 Nombre" required>
-<input name="correo" type="email" placeholder="📧 Correo" required>
-<input id="pass" name="password" type="password" placeholder="🔒 Contraseña" required>
-<input name="password2" type="password" placeholder="🔒 Confirmar contraseña" required>
-<input name="rol" placeholder="Rol (admin/user)" required>
+<input name="nombre" placeholder="Nombre" required>
+<input name="correo" type="email" placeholder="Correo" required>
+<input name="password" type="password" placeholder="Contraseña" required>
+<input name="password2" type="password" placeholder="Confirmar" required>
+<input name="rol" placeholder="Rol" required>
 
-  //boton mostrar
-  <button type="submit">Registrar</button>
+<button type="submit">Registrar</button>
 
 </form>
 
