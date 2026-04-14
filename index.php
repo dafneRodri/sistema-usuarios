@@ -118,7 +118,7 @@ margin-top:10px;
 
 <div class="box">
 
-<h2> Crear cuenta 🚀</h2>
+<h2> Crear cuenta </h2>
 <p class="sub">Sistema de usuarios</p>
 
 <form method="POST">
