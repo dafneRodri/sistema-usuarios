@@ -14,38 +14,63 @@ background:#000;
 color:white;
 font-family:Segoe UI;
 }
+
 h1{
 text-align:center;
 color:#7b5bf2;
+margin-top:20px;
 }
+
 .container{
 width:90%;
 margin:auto;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
 }
+
 .card{
-background:#111;
-padding:15px;
-margin:10px;
-border-radius:15px;
+background:rgba(255,255,255,0.05);
+padding:20px;
+border-radius:20px;
 box-shadow:0 0 15px #7b5bf2;
-display:flex;
-justify-content:space-between;
-align-items:center;
 transition:0.3s;
 }
+
 .card:hover{
-transform:scale(1.02);
+transform:scale(1.03);
 }
+
+.btn-group{
+margin-top:10px;
+display:flex;
+gap:10px;
+}
+
 .btn{
-padding:8px 12px;
+flex:1;
+text-align:center;
+padding:8px;
 border-radius:10px;
 text-decoration:none;
-margin-left:5px;
-background:#7b5bf2;
+background:linear-gradient(45deg,#7b5bf2,#09184d);
 color:white;
 }
+
 .btn:hover{
 box-shadow:0 0 10px #7b5bf2;
+}
+
+.logout{
+display:block;
+margin:30px auto;
+width:200px;
+text-align:center;
+padding:10px;
+border-radius:10px;
+background:#7b5bf2;
+text-decoration:none;
+color:white;
 }
 </style>
 </head>
@@ -58,14 +83,14 @@ box-shadow:0 0 10px #7b5bf2;
 <b><?= $row['nombre'] ?></b> <small style="color:#7b5bf2;">(<?= $row['rol'] ?>)</small><br>
 <?= $row['correo'] ?>
 </div>
-  <div>
-    <a class="btn" href="editar.php?id=<?= $row['id'] ?>">Editar ✏️</a>
-    <a class="btn" href="eliminar.php?id=<?= $row['id'] ?>">Borrar 🗑️</a>
+<div class="btn-group">
+<a class="btn" href="editar.php?id=<?= $row['id'] ?>">Editar ✏️</a>
+<a class="btn" href="eliminar.php?id=<?= $row['id'] ?>">Borrar 🗑️</a>
 </div>
 </div>
 <?php } ?>
 </div>
 <br>
-<center><a class="btn" href="logout.php">Cerrar sesión</a></center>
+<a class="logout" href="logout.php">Cerrar sesión 🔒</a>
 </body>
 </html>
