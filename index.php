@@ -1,4 +1,9 @@
-<?php include("conexion.php"); ?>
+<?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+include("conexion.php");
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -111,6 +116,9 @@ x.type=x.type==="password"?"text":"password";
 <a href="login.php">Ya tengo cuenta</a>
 <?php
 if($_POST){
+    echo "ENTRÓ<br>";
+    var_dump($_POST);
+  
 $nombre=$_POST['nombre'];
 $correo=$_POST['correo'];
 $pass=$_POST['password'];
